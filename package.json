@@ -1,16 +1,22 @@
 {
 	"name": "ektubeshi-cdn",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"private": true,
+	"main": "src/index.ts",
+	"type": "module",
 	"scripts": {
 		"deploy": "wrangler deploy",
 		"dev": "wrangler dev",
 		"start": "wrangler dev",
 		"test": "vitest",
-		"cf-typegen": "wrangler types"
+		"test:watch": "vitest --watch",
+		"cf-typegen": "wrangler types",
+		"sync": "node scripts/sync-content.js",
+		"sync:watch": "node scripts/sync-content.js watch"
 	},
 	"devDependencies": {
 		"@cloudflare/vitest-pool-workers": "^0.8.19",
+		"chokidar": "^3.5.3",
 		"typescript": "^5.5.2",
 		"vitest": "~3.2.0",
 		"wrangler": "^4.28.1"
